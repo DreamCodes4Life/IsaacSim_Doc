@@ -1,0 +1,14 @@
+#check if already installed
+ros2 interface package ackermann_msgs
+
+#If not, install it
+sudo apt update
+sudo apt install -y ros-jazzy-ackermann-msgs
+
+#Source Ros
+source /opt/ros/jazzy/setup.bash
+source ~/ros2_ws/install/setup.bash
+
+#download packages for tutorials ROS
+cd ~
+git clone https://github.com/isaac-sim/IsaacSim-ros_workspaces.git

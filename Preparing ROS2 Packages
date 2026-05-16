@@ -12,3 +12,7 @@ source ~/ros2_ws/install/setup.bash
 #download packages for tutorials ROS
 cd ~
 git clone https://github.com/isaac-sim/IsaacSim-ros_workspaces.git
+
+sudo rosdep init
+rosdep update
+

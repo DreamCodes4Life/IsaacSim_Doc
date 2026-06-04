@@ -31,4 +31,4 @@ Prepare your stage:
 Extension@:
 <img width="1016" height="267" alt="image" src="https://github.com/user-attachments/assets/70a69ba7-5b15-429d-833a-5b7eae32c2c0" />
 
-<video controls src="OccupancyMap_Scrip.mp4" title="Title"></video>
+<video controls src="Videos/OccupancyMap_Scrip.mp4" title="Title"></video>

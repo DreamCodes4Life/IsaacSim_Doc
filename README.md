@@ -16,7 +16,7 @@ Import a Forjklift_c
 ![Pick and drop ForkLift_c](Images/image-2.png)
 
 Follow the steps in the order
-🔗 [ForkLift Ackerman Controller Tutorial](https://github.com/DreamCodes4Life/IsaacSim_Doc/tree/main/TUTORIALS/FORKLIFT_ACKERMAN_ROS2)
+🔗 [ForkLift Ackerman Controller Tutorial](https://github.com/DreamCodes4Life/IsaacSim_Doc/tree/main/ROS2/FORKLIFT_ACKERMAN_ROS2)
 
 🔗 [NVIDIA Docs tutorial reference](https://docs.isaacsim.omniverse.nvidia.com/5.1.0/ros2_tutorials/tutorial_ros2_ackermann_controller.html)
 

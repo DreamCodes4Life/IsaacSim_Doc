@@ -4,7 +4,18 @@ Following IsaacSim Official Documentation
 
 # 87- ROS 2 Ackermann Controller
 
+Prepare your stage:
+
+![Empty Stage](Images/image.png)
+
+![Flat Grid](Images/image-1.png)
+
+![Pick and drop ForkLift_c](Images/image-2.png)
+
+
 🔗 [ForkLift Ackerman Controller Tutorial](https://github.com/DreamCodes4Life/IsaacSim_Doc/tree/main/TUTORIALS/FORKLIFT_ACKERMAN_ROS2)
+
+🔗 [NVIDIA Docs tutorial reference](https://docs.isaacsim.omniverse.nvidia.com/5.1.0/ros2_tutorials/tutorial_ros2_ackermann_controller.html)
 
 
 # 163- Mapping (Occupancy Map)

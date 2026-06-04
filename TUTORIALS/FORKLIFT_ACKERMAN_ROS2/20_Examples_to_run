@@ -1,0 +1,20 @@
+# Reference NVIDIA Tutotrial
+ros2 run isaac_tutorials ros2_ackermann_publisher.py
+
+#One Omnigraph per Forklift (with attribute forklift number)
+#Example forklift 01
+ros2 topic pub /forklift_01/ackermann_cmd ackermann_msgs/msg/AckermannDriveStamped \
+"{header: {frame_id: 'base_link'}, drive: {speed: 1.0, steering_angle: 0.3, steering_angle_velocity: 0.0, acceleration: 0.0, jerk: 0.0}}"
+
+#Example Forklift 02
+ros2 topic pub /forklift_02/ackermann_cmd ackermann_msgs/msg/AckermannDriveStamped \
+"{header: {frame_id: 'base_link'}, drive: {speed: 1.0, steering_angle: -0.3, steering_angle_velocity: 0.0, acceleration: 0.0, jerk: 0.0}}"
+
+
+# Manual control
+# Set some config
+ros2 run cmdvel_to_ackermann cmdvel_to_ackermann
+
+# Run keyboard control
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+

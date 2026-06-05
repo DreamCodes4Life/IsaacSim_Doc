@@ -106,23 +106,17 @@ def graph_exists_for_forklift(forklift_path, forklift_number):
     stage = get_stage()
 
     graph_path = f"{forklift_path}/{GRAPH_NAME_PREFIX}_{forklift_number:02d}"
+
     if stage.GetPrimAtPath(graph_path).IsValid():
         return True, graph_path
 
-    # Also check for any existing OmniGraph child with our prefix
     forklift_prim = stage.GetPrimAtPath(forklift_path)
+
     for child in forklift_prim.GetChildren():
         if child.GetName().startswith(GRAPH_NAME_PREFIX):
             return True, str(child.GetPath())
 
     return False, graph_path
-
-
-def set_target_prim(graph_path, node_name, forklift_path):
-    attr = og.Controller.attribute(
-        f"{graph_path}/{node_name}.inputs:targetPrim"
-    )
-    attr.set([Sdf.Path(forklift_path)])
 
 
 # ---------------------------------------------------------
@@ -189,15 +183,17 @@ def create_forklift_ackermann_graph(
 
                 ("steering_articulation_controller.inputs:jointNames", STEERING_JOINTS),
                 ("wheel_articulation_controller.inputs:jointNames", WHEEL_JOINTS),
+
+                # Target articulation root prims
+                ("steering_articulation_controller.inputs:targetPrim", [Sdf.Path(forklift_path)]),
+                ("wheel_articulation_controller.inputs:targetPrim", [Sdf.Path(forklift_path)]),
             ],
         },
     )
 
-    set_target_prim(graph_path, "steering_articulation_controller", forklift_path)
-    set_target_prim(graph_path, "wheel_articulation_controller", forklift_path)
-
     print(f"Created graph: {graph_path}")
     print(f"ROS 2 topic: {topic_name}")
+    print(f"Target prim: {forklift_path}")
 
 
 # ---------------------------------------------------------
@@ -228,6 +224,7 @@ def generate_action_graphs_for_all_forklifts():
             forklift_path=forklift_path,
             forklift_number=number,
         )
+
         created += 1
 
     print("")

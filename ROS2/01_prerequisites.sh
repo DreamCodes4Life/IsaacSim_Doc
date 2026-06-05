@@ -30,3 +30,6 @@ python3-colcon-common-extensions \
 python3-rosdep \
 python3-vcstool \
 build-essential
+
+# Having done: 
+FORKLIFT_ACKERMAN_ROS2

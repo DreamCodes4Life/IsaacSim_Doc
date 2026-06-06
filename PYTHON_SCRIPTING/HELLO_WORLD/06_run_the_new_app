@@ -1,0 +1,10 @@
+# Here we runn the application from point 5
+# run the next in your terminal
+
+#path to your isaacsim folder installation
+ISAAC_SIM="$HOME/isaac-sim"
+# path to your app, this is an example to mine, use your path!!!
+APP="/media/borja/STORAGE/GithubRepos/NVIDIA/IsaacSim_Doc/PYTHON_SCRIPTING/HELLO_WORLD/05_my_new_application.py"
+
+# run the app
+"$ISAAC_SIM/python.sh" "$APP"

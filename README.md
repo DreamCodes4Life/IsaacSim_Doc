@@ -32,6 +32,15 @@ Follow the steps in the order
 
 🔗 [Namespace generation](https://github.com/DreamCodes4Life/IsaacSim_Doc/tree/main/ROS2/Namespaces)
 
+# 90- ROS2 - Bridge in Standalone Workflow
+
+Learn how to create and subscribe to actiongraphs from terminal
+
+Learn how to run stand alone applications or usd files from terminal using puthon
+
+
+🔗 [Namespace generation](https://github.com/DreamCodes4Life/IsaacSim_Doc/tree/main/ROS2/BRIDGE_IN_STANDALONE_WORKFLOW)
+
 # 163- Mapping (Occupancy Map) 5.1
 
 1- Create a physical Scene

@@ -32,7 +32,7 @@ Follow the steps in the order
 
 🔗 [Namespace generation](https://github.com/DreamCodes4Life/IsaacSim_Doc/tree/main/ROS2/Namespaces)
 
-# 90- ROS2 - Bridge in Standalone Workflow
+# 90- ROS2 - Bridge in Standalone Workflow 5.1
 
 Learn how to create and subscribe to actiongraphs from terminal
 

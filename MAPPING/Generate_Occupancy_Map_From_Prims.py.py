@@ -12,7 +12,8 @@ import omni.usd
 from pxr import Usd, UsdGeom
 
 # ── Configure ──────────────────────────────────────────────────────────────────
-OUTPUT_DIR  = "YOUR_PATH_TO_SAVE_THE_FILES"
+# OUTPUT_DIR  = "YOUR_PATH_TO_SAVE_THE_FILES"
+OUTPUT_DIR  = "/home/borja/Documents/IsaacSim_Projects/ROS2_Navigation"
 OUTPUT_STEM = "occupancy_map"
 CELL_SIZE   = 0.05   # metres per cell
 
@@ -26,6 +27,37 @@ CENTER_PATH = "/World/Occupancy_Map_Limits/Center"
 UPPER_PATH  = "/World/Occupancy_Map_Limits/UpperBound"
 LOWER_PATH  = "/World/Occupancy_Map_Limits/LowerBound"
 
+# ── Optional: create limit Xforms if missing ───────────────────────────────────
+CREATE_LIMIT_XFORMS_IF_MISSING = True
+
+CENTER_TRANSLATION = (0.0, 0.0, 0.0)
+LOWER_TRANSLATION  = (-5.0, -5.0, 0.1)
+UPPER_TRANSLATION  = (5.0, 5.0, 0.62)
+
+
+def ensure_xform_prim(path, translation):
+    stage = omni.usd.get_context().get_stage()
+    prim = stage.GetPrimAtPath(path)
+
+    if prim.IsValid():
+        print(f"[OccupancyMap] Prim already exists: {path}")
+        return prim
+
+    print(f"[OccupancyMap] Creating Xform: {path} at {translation}")
+
+    xform = UsdGeom.Xform.Define(stage, path)
+    xform.AddTranslateOp().Set(translation)
+
+    return xform.GetPrim()
+
+
+def ensure_limit_prims():
+    if not CREATE_LIMIT_XFORMS_IF_MISSING:
+        return
+
+    ensure_xform_prim(CENTER_PATH, CENTER_TRANSLATION)
+    ensure_xform_prim(LOWER_PATH, LOWER_TRANSLATION)
+    ensure_xform_prim(UPPER_PATH, UPPER_TRANSLATION)
 
 def get_world_translation(path):
     stage = omni.usd.get_context().get_stage()
@@ -39,7 +71,10 @@ def get_world_translation(path):
 
 async def generate_occupancy_map():
     import traceback
+    
     try:
+        ensure_limit_prims()
+
         center = get_world_translation(CENTER_PATH)
         prim_a = get_world_translation(LOWER_PATH)
         prim_b = get_world_translation(UPPER_PATH)

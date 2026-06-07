@@ -1,0 +1,1 @@
+# we need to use ROS2 from terminal, no internal libraries form IsaacSim

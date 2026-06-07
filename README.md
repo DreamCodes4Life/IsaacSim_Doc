@@ -42,6 +42,8 @@ Learn how to run stand alone applications or usd files from terminal using putho
 
 # 91- ROS2 - Navigation
 
+🔗 [Navigation tutorial](https://github.com/DreamCodes4Life/IsaacSim_Doc/tree/main/ROS2/NAVIGATION)
+
 ![Load Nova Carter Scene](Images/load_nova_carter_sample.png)
 
 # 163- Mapping (Occupancy Map) 5.1
